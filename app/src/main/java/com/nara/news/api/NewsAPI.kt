@@ -1,6 +1,6 @@
 package com.nara.news.api
 
-import com.nara.news.NewsResponse
+import com.nara.news.model.NewsResponse
 import com.nara.news.util.Constants.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
