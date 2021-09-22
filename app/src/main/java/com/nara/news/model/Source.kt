@@ -1,4 +1,4 @@
-package com.nara.news
+package com.nara.news.model
 
 data class Source(
     val id: String,
