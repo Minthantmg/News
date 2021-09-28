@@ -2,6 +2,7 @@ package com.nara.news.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(
         tableName = "articles"
@@ -17,4 +18,4 @@ data class Article(
         val title: String? = null,
         val url: String? = null,
         val urlToImage: String? = null
-)
+): Serializable
