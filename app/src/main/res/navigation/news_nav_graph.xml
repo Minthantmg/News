@@ -9,7 +9,11 @@
         android:id="@+id/articleFragment"
         android:name="com.nara.news.Fragments.ArticleFragment"
         android:label="fragment_article"
-        tools:layout="@layout/fragment_article" />
+        tools:layout="@layout/fragment_article" >
+        <argument
+            android:name="article"
+            app:argType="com.nara.news.model.Article" />
+    </fragment>
     <fragment
         android:id="@+id/breakingNewsFragment2"
         android:name="com.nara.news.Fragments.BreakingNewsFragment"
