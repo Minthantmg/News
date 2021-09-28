@@ -6,6 +6,7 @@ import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nara.news.Adapter.NewsAdapter
 import com.nara.news.MainActivity
@@ -32,6 +33,16 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
 
         viewModel = (activity as MainActivity).viewModel
         setUpRecyclerView()
+
+        newsAdapter.setOnClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("article",it)
+            }
+            findNavController().navigate(
+                R.id.action_searchNewsFragment2_to_articleFragment,
+                bundle
+            )
+        }
 
         //Job for search like instagram
         var job: Job? = null
