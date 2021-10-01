@@ -2,6 +2,7 @@ package com.nara.news.Repository
 
 import com.nara.news.api.RetrofitInstance
 import com.nara.news.db.ArticleDatabase
+import com.nara.news.model.Article
 import retrofit2.Retrofit
 
 class NewsRepository(
@@ -13,4 +14,10 @@ class NewsRepository(
 
     suspend fun searchNews(searchQuery : String, pageNumber: Int) =
             RetrofitInstance.api.searchForNews(searchQuery,pageNumber)
+
+    suspend fun upsert(article : Article) = db.getArticleDao().upsert(article)
+
+    fun getSavedNews() = db.getArticleDao().getAllArticle()
+
+    suspend fun deleteArticle(article: Article) = db.getArticleDao().deleteArticle(article)
 }
