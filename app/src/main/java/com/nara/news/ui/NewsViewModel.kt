@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nara.news.Repository.NewsRepository
+import com.nara.news.model.Article
 import com.nara.news.model.NewsResponse
 import com.nara.news.util.Resource
 import kotlinx.coroutines.launch
@@ -52,5 +53,15 @@ class NewsViewModel(
             }
         }
         return Resource.Error(response.message())
+    }
+
+    fun saveArticle(article: Article) = viewModelScope.launch {
+        newRepository.upsert(article)
+    }
+
+    fun getSavedNews() = newRepository.getSavedNews()
+
+    fun deleteArticle(article: Article) = viewModelScope.launch {
+        newRepository.deleteArticle(article)
     }
 }
